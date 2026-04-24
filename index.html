@@ -40,6 +40,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   h1, h2, h3 {
@@ -147,12 +148,32 @@
 
   .tag {
     margin-top: 28px;
+    max-width: 44rem;
+  }
+  .tag span {
+    display: block;
+  }
+  .tag-product {
+    font-family: "Fraunces", serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 600;
+    line-height: 1.08;
+    color: var(--bone);
+  }
+  .tag-tech {
+    margin-top: 8px;
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 500;
+    line-height: 1.35;
+    color: rgba(246, 241, 231, 0.82);
+  }
+  .tag-years {
+    margin-top: 12px;
     font-family: "Fraunces", serif;
     font-style: italic;
-    font-weight: 500;
-    font-size: clamp(20px, 2.2vw, 26px);
-    color: rgba(246, 241, 231, 0.9);
-    max-width: 32ch;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.15;
+    color: var(--sun);
   }
 
   .lede {
@@ -265,6 +286,156 @@
     margin: 0;
   }
 
+  /* ---------- Before / after ---------- */
+  .contrast {
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .contrast .wrap {
+    width: min(1480px, 96vw);
+  }
+  .contrast .section-title {
+    max-width: 24ch;
+  }
+  .contrast-panels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px;
+    margin-top: 48px;
+  }
+  .contrast-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 28px;
+    background: var(--bone);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+  }
+  .contrast-panel.solution {
+    background: #f2f6ed;
+  }
+  .contrast-copy h3 {
+    font-size: clamp(24px, 3vw, 34px);
+    margin-bottom: 14px;
+  }
+  .contrast-copy p {
+    color: #3e4e45;
+    margin: 0;
+  }
+  .contrast-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--leaf);
+  }
+  .diagram-frame {
+    overflow: hidden;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid rgba(31, 61, 43, 0.12);
+  }
+  .diagram-zoom {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+  }
+  .diagram-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    background: rgba(18, 32, 26, 0.86);
+  }
+  .lightbox.is-open {
+    display: flex;
+  }
+  .lightbox img {
+    display: block;
+    max-width: min(100%, 1600px);
+    max-height: 88vh;
+    width: auto;
+    height: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    transform: translate(var(--pan-x, 0px), var(--pan-y, 0px)) scale(var(--zoom, 1));
+    transform-origin: center;
+    transition: transform 0.12s ease;
+    cursor: zoom-in;
+    user-select: none;
+    touch-action: none;
+  }
+  .lightbox.is-zoomed img {
+    cursor: grab;
+  }
+  .lightbox.is-dragging img {
+    cursor: grabbing;
+    transition: none;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(246, 241, 231, 0.32);
+    border-radius: 999px;
+    background: rgba(18, 32, 26, 0.72);
+    color: var(--bone);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .lightbox-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid rgba(246, 241, 231, 0.24);
+    border-radius: 999px;
+    background: rgba(18, 32, 26, 0.78);
+  }
+  .lightbox-controls button {
+    min-width: 42px;
+    height: 38px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(246, 241, 231, 0.12);
+    color: var(--bone);
+    font: inherit;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .lightbox-controls button:hover {
+    background: rgba(246, 241, 231, 0.22);
+  }
+  .lightbox-controls .zoom-reset {
+    min-width: 64px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
   /* ---------- Pull quote ---------- */
   .quote {
     background: var(--earth-deep);
@@ -293,6 +464,29 @@
   }
 
   /* ---------- Cycle ---------- */
+  .cycle-explainer {
+    margin-top: 46px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr);
+    gap: 32px;
+    align-items: center;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 24px 50px -42px rgba(31,61,43,0.35);
+  }
+  .cycle-explainer h3 {
+    font-size: clamp(24px, 3vw, 34px);
+    margin-bottom: 14px;
+  }
+  .cycle-explainer p {
+    color: #3e4e45;
+    margin: 0;
+  }
+  .cycle-explainer .diagram-frame {
+    border-radius: 14px;
+  }
   .cycle {
     margin-top: 48px;
     display: grid;
@@ -382,6 +576,46 @@
     font-family: "Inter", sans-serif;
   }
 
+  /* ---------- Founder quote ---------- */
+  .founder-quote {
+    background: var(--soil);
+    color: var(--bone);
+    padding: 76px 0;
+  }
+  .founder-inner {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.34fr) minmax(0, 0.66fr);
+    gap: 48px;
+    align-items: center;
+  }
+  .founder-photo {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 5 / 6;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 16px;
+    border: 1px solid rgba(246, 241, 231, 0.18);
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.28);
+  }
+  .founder-quote blockquote {
+    margin: 0;
+    max-width: 920px;
+    font-family: "Fraunces", serif;
+    font-size: clamp(26px, 3.6vw, 46px);
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+  }
+  .founder-quote cite {
+    display: block;
+    margin-top: 28px;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(246, 241, 231, 0.72);
+  }
+
   /* ---------- Footer ---------- */
   footer {
     border-top: 1px solid var(--line);
@@ -407,6 +641,10 @@
     .pillars, .cycle { grid-template-columns: 1fr 1fr; }
     .stats { grid-template-columns: 1fr 1fr; }
     .mission-grid { grid-template-columns: 1fr; }
+    .contrast-panels { grid-template-columns: 1fr; }
+    .cycle-explainer { grid-template-columns: 1fr; }
+    .founder-inner { grid-template-columns: 1fr; }
+    .founder-photo { max-width: 280px; }
   }
   @media (max-width: 540px) {
     .hero { padding: 64px 0 56px; }
@@ -415,6 +653,13 @@
     .numbers { text-align: center; }
     .numbers .section-title { margin-left: auto; margin-right: auto; }
     .stat .label { margin-left: auto; margin-right: auto; }
+    .contrast-panel { padding: 18px; }
+    .cycle-explainer { padding: 18px; }
+    .founder-quote { padding: 56px 0; }
+    .founder-inner { gap: 28px; }
+    .lightbox { padding: 12px; }
+    .lightbox img { max-height: 78vh; }
+    .lightbox-controls { bottom: 12px; }
   }
 </style>
 </head>
@@ -432,9 +677,13 @@
     <div class="wrap">
       <div class="eyebrow">A Drucker Labs Initiative</div>
       <h1 class="title">Restoring our <em>tomorrow</em>, today.<span class="tm">&trade;</span></h1>
-      <p class="tag">Food &middot; Air &middot; Ocean &mdash; a SNAR system 30+ years in the making.</p>
+      <p class="tag">
+        <span class="tag-product">AgraMAX FAO&trade; (Food-Air-Ocean)</span>
+        <span class="tag-tech">SNAR (Soil-based Nutrition &amp; Atmosphere Regeneration System) Technology</span>
+        <span class="tag-years">30+ years in the making.</span>
+      </p>
       <p class="lede">
-        AgraMAX FAO&trade; is a 100% organically microcomplexed Soil-based, Nutrition &amp; Atmosphere Regeneration system
+        A 100% organically microcomplexed system
         &mdash; designed to heal depleted soils, restore the nutrients in our food supply, and help sequester atmospheric
         CO<sub>2</sub> through proprietary CarbonCAP&trade; Technology.
       </p>
@@ -484,6 +733,44 @@
     </div>
   </section>
 
+  <section class="contrast">
+    <div class="wrap">
+      <div class="section-label">Problem to restoration</div>
+      <h2 class="section-title">A broken cycle. A restored pathway.</h2>
+      <p class="section-intro">
+        These diagrams show the contrast between depleted soil and CO<sub>2</sub> imbalance today, and AgraMAX FAO&trade;&rsquo;s restoration model for healthier soil, food, moisture retention, and carbon capture.
+      </p>
+
+      <div class="contrast-panels">
+        <article class="contrast-panel">
+          <div class="contrast-copy">
+            <span class="contrast-kicker">Current problem</span>
+            <h3>Depleted soil breaks the natural cycle.</h3>
+            <p>Modern agriculture, chemical inputs, and deforestation leave soil unable to hold moisture, store carbon, or produce nutrient-rich food.</p>
+          </div>
+          <div class="diagram-frame">
+            <button class="diagram-zoom" type="button" data-full="before.jpg" aria-label="Open current problem diagram full size">
+              <img src="before.jpg" alt="Diagram showing depleted soil, excess atmospheric carbon dioxide, deforestation, chemical pesticides, and nutrient-poor food." loading="lazy" />
+            </button>
+          </div>
+        </article>
+
+        <article class="contrast-panel solution">
+          <div class="contrast-copy">
+            <span class="contrast-kicker">AgraMAX FAO restoration model</span>
+            <h3>Restored soil brings the system back to life.</h3>
+            <p>AgraMAX FAO&trade; helps rebuild soil biology, retain water, improve crop nutrition, and sequester CO<sub>2</sub> back into the earth through CarbonCAP&trade; Technology.</p>
+          </div>
+          <div class="diagram-frame">
+            <button class="diagram-zoom" type="button" data-full="after.jpg" aria-label="Open AgraMAX FAO restoration diagram full size">
+              <img src="after.jpg" alt="Diagram showing the AgraMAX FAO restoration model with healthier soil, stronger crops, moisture retention, and carbon capture." loading="lazy" />
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="quote">
     <div class="wrap">
       <div class="section-label">Why it matters</div>
@@ -503,10 +790,23 @@
         loop between a healthy climate and healthy people.
       </p>
 
+      <div class="cycle-explainer">
+        <div>
+          <span class="contrast-kicker">Root-level explainer</span>
+          <h3>How restoration moves from soil into food.</h3>
+          <p>This graphic shows how AgraMAX FAO&trade; is positioned to rebuild soil health from the roots up, supporting beneficial soil life, water retention, nutrient-rich crops, and carbon sequestration.</p>
+        </div>
+        <div class="diagram-frame">
+          <button class="diagram-zoom" type="button" data-full="carrot.jpg" aria-label="Open AgraMAX FAO carrot restoration cycle diagram full size">
+            <img src="carrot.jpg" alt="Carrot root diagram explaining the AgraMAX FAO restoration cycle from depleted soil to nutrient-rich food and carbon sequestration." loading="lazy" />
+          </button>
+        </div>
+      </div>
+
       <ol class="cycle" style="list-style:none; padding:0;">
         <li class="step">
           <h4>Rebuild soil</h4>
-          <p>SNAR technology restores organic complexes, letting soil-based microorganisms multiply and thrive.</p>
+          <p>SNAR Technology (Soil-based Nutrition &amp; Atmosphere Regeneration System) restores organic complexes, letting soil-based microorganisms multiply and thrive.</p>
         </li>
         <li class="step">
           <h4>Retain &amp; sequester</h4>
@@ -573,7 +873,27 @@
       </div>
     </div>
   </section>
+
+  <section class="founder-quote">
+    <div class="wrap founder-inner">
+      <img class="founder-photo" src="Richard-3%20%285x7%29.jpg" alt="Portrait of Dr. Richard Drucker" loading="lazy" />
+      <blockquote>
+        &ldquo;AgraMAX FAO is a key solution for this unprecedented food challenge, helping prevent a humanitarian catastrophe of both food shortage and disease proliferation.&rdquo;
+        <cite>Dr. Richard Drucker</cite>
+      </blockquote>
+    </div>
+  </section>
 </main>
+
+<div class="lightbox" id="diagramLightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close full-size diagram">&times;</button>
+  <img src="" alt="" />
+  <div class="lightbox-controls" aria-label="Image zoom controls">
+    <button type="button" data-zoom="out" aria-label="Zoom out">&minus;</button>
+    <button class="zoom-reset" type="button" data-zoom="reset">Reset</button>
+    <button type="button" data-zoom="in" aria-label="Zoom in">+</button>
+  </div>
+</div>
 
 <footer>
   <div class="wrap row">
@@ -587,6 +907,125 @@
 
 <script>
   document.getElementById("yr").textContent = new Date().getFullYear();
+
+  const lightbox = document.getElementById("diagramLightbox");
+  const lightboxImage = lightbox.querySelector("img");
+  let zoomLevel = 1;
+  let panX = 0;
+  let panY = 0;
+  let dragStart = null;
+  let didDrag = false;
+
+  const applyLightboxTransform = () => {
+    lightbox.style.setProperty("--zoom", zoomLevel);
+    lightbox.style.setProperty("--pan-x", `${panX}px`);
+    lightbox.style.setProperty("--pan-y", `${panY}px`);
+    lightbox.classList.toggle("is-zoomed", zoomLevel > 1);
+  };
+
+  const resetLightboxZoom = () => {
+    zoomLevel = 1;
+    panX = 0;
+    panY = 0;
+    applyLightboxTransform();
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.classList.remove("is-dragging");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImage.src = "";
+    lightboxImage.alt = "";
+    resetLightboxZoom();
+  };
+
+  document.querySelectorAll(".diagram-zoom").forEach((button) => {
+    button.addEventListener("click", () => {
+      const image = button.querySelector("img");
+      lightboxImage.src = button.dataset.full;
+      lightboxImage.alt = image.alt;
+      resetLightboxZoom();
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+    });
+  });
+
+  lightbox.querySelectorAll("[data-zoom]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const action = button.dataset.zoom;
+      if (action === "reset") {
+        resetLightboxZoom();
+        return;
+      }
+      const nextZoom = action === "in" ? zoomLevel + 0.5 : zoomLevel - 0.5;
+      zoomLevel = Math.min(4, Math.max(1, nextZoom));
+      if (zoomLevel === 1) {
+        panX = 0;
+        panY = 0;
+      }
+      applyLightboxTransform();
+    });
+  });
+
+  lightboxImage.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (didDrag) {
+      didDrag = false;
+      return;
+    }
+    zoomLevel = zoomLevel === 1 ? 2 : 1;
+    if (zoomLevel === 1) {
+      panX = 0;
+      panY = 0;
+    }
+    applyLightboxTransform();
+  });
+
+  lightboxImage.addEventListener("pointerdown", (event) => {
+    if (zoomLevel === 1) return;
+    event.preventDefault();
+    dragStart = {
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      panX,
+      panY
+    };
+    didDrag = false;
+    lightbox.classList.add("is-dragging");
+    lightboxImage.setPointerCapture(event.pointerId);
+  });
+
+  lightboxImage.addEventListener("pointermove", (event) => {
+    if (!dragStart || dragStart.pointerId !== event.pointerId) return;
+    if (Math.abs(event.clientX - dragStart.x) > 4 || Math.abs(event.clientY - dragStart.y) > 4) {
+      didDrag = true;
+    }
+    panX = dragStart.panX + event.clientX - dragStart.x;
+    panY = dragStart.panY + event.clientY - dragStart.y;
+    applyLightboxTransform();
+  });
+
+  const stopLightboxDrag = (event) => {
+    if (!dragStart || dragStart.pointerId !== event.pointerId) return;
+    dragStart = null;
+    lightbox.classList.remove("is-dragging");
+  };
+  lightboxImage.addEventListener("pointerup", stopLightboxDrag);
+  lightboxImage.addEventListener("pointercancel", stopLightboxDrag);
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox || event.target.classList.contains("lightbox-close")) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
 </script>
 
 </body>
