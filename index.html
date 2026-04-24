@@ -4,83 +4,503 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Coming Soon</title>
-  <meta name="description" content="A new product is coming soon. Stay tuned for updates." />
+  <title>AgraMAX FAO™ | Coming Soon</title>
+  <meta
+    name="description"
+    content="AgraMAX FAO™ is a coming Soil-based Nutrition & Atmosphere Regeneration initiative focused on restoring soil health, food quality, and environmental balance."
+  />
 
   <style>
+    :root {
+      --soil: #31281f;
+      --soil-soft: #5d4936;
+      --leaf: #486f3d;
+      --leaf-dark: #2f4a2b;
+      --sand: #f4ead8;
+      --cream: #fffaf0;
+      --sky: #dfeee8;
+      --gold: #c99f4a;
+      --text: #241f1a;
+      --muted: #655b50;
+      --card: rgba(255, 250, 240, 0.78);
+      --border: rgba(49, 40, 31, 0.16);
+      --shadow: 0 24px 70px rgba(49, 40, 31, 0.16);
+    }
+
     * {
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f4ef;
-      color: #1f1f1f;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .page {
-      max-width: 720px;
-      text-align: center;
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(201, 159, 74, 0.22), transparent 30%),
+        radial-gradient(circle at 84% 12%, rgba(72, 111, 61, 0.18), transparent 34%),
+        linear-gradient(135deg, var(--cream) 0%, var(--sand) 48%, var(--sky) 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 999px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 420px;
+      height: 420px;
+      left: -180px;
+      bottom: -170px;
+      background: rgba(72, 111, 61, 0.14);
+      filter: blur(3px);
+    }
+
+    body::after {
+      width: 520px;
+      height: 520px;
+      right: -220px;
+      top: 18%;
+      background: rgba(201, 159, 74, 0.13);
+      filter: blur(4px);
+    }
+
+    .site {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--soil);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--cream);
+      background: linear-gradient(135deg, var(--leaf), var(--soil));
+      box-shadow: 0 12px 30px rgba(47, 74, 43, 0.24);
+      font-size: 18px;
+    }
+
+    .brand span:last-child {
+      font-size: 18px;
+    }
+
+    .nav-note {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      align-items: center;
+      padding: 36px 0 70px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 44px;
+      align-items: center;
     }
 
     .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(72, 111, 61, 0.22);
+      border-radius: 999px;
+      color: var(--leaf-dark);
+      background: rgba(255, 250, 240, 0.62);
       font-size: 13px;
-      margin-bottom: 18px;
-      color: #7a6a58;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--leaf);
     }
 
     h1 {
-      font-size: clamp(42px, 8vw, 76px);
-      line-height: 1;
-      margin: 0 0 24px;
+      margin: 0;
+      color: var(--soil);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      max-width: 780px;
     }
 
-    p {
-      font-size: 20px;
-      line-height: 1.5;
-      margin: 0 auto 32px;
-      max-width: 560px;
-      color: #4d463f;
+    .lead {
+      max-width: 650px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.62;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+      align-items: center;
     }
 
     .button {
-      display: inline-block;
-      background: #1f1f1f;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 14px 24px;
+      appearance: none;
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
       border-radius: 999px;
-      font-weight: bold;
+      background: var(--soil);
+      color: var(--cream);
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 16px 32px rgba(49, 40, 31, 0.22);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
 
-    .note {
-      margin-top: 24px;
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--leaf-dark);
+      box-shadow: 0 20px 42px rgba(49, 40, 31, 0.24);
+    }
+
+    .secondary-link {
+      color: var(--soil-soft);
+      font-weight: 800;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(93, 73, 54, 0.28);
+      padding-bottom: 3px;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 240, 0.7), transparent 42%),
+        radial-gradient(circle at top right, rgba(72, 111, 61, 0.16), transparent 35%);
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cycle {
+      display: grid;
+      gap: 14px;
+      margin: 22px 0 0;
+    }
+
+    .cycle-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 13px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255, 250, 240, 0.72);
+      border: 1px solid rgba(49, 40, 31, 0.1);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(72, 111, 61, 0.12);
+      color: var(--leaf-dark);
+      font-size: 21px;
+    }
+
+    .cycle-item h2 {
+      margin: 0 0 5px;
+      color: var(--soil);
+      font-size: 17px;
+      letter-spacing: -0.02em;
+    }
+
+    .cycle-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+
+    .card-label {
+      color: var(--leaf-dark);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      margin: 8px 0 0;
+      color: var(--soil);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .mission {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .mission-card {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(255, 250, 240, 0.54);
+    }
+
+    .mission-card strong {
+      display: block;
+      color: var(--soil);
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .mission-card span {
+      display: block;
+      color: var(--muted);
       font-size: 14px;
-      color: #7a6a58;
+      line-height: 1.48;
+    }
+
+    .footer-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      padding: 24px 0 30px;
+      color: rgba(36, 31, 26, 0.64);
+      font-size: 13px;
+    }
+
+    .footer-line a {
+      color: inherit;
+      font-weight: 700;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 640px;
+      }
+
+      .mission {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-line {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      header {
+        padding: 20px 0;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      main {
+        padding-top: 18px;
+      }
+
+      .hero-card {
+        padding: 18px;
+        border-radius: 26px;
+      }
+
+      .actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-    <div class="eyebrow">Coming Soon</div>
-    <h1>Something new is on the way.</h1>
-    <p>
-      We’re getting ready to launch a product designed to make a meaningful difference.
-      Check back soon for updates.
-    </p>
+  <div class="site">
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#" aria-label="AgraMAX FAO home">
+          <span class="brand-mark">✦</span>
+          <span>AgraMAX FAO™</span>
+        </a>
+        <div class="nav-note">Food · Air · Ocean</div>
+      </div>
+    </header>
 
-    <a class="button" href="mailto:hello@yourdomain.com">Contact Us</a>
+    <main>
+      <div class="container hero">
+        <section aria-labelledby="page-title">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Coming Soon</div>
+          <h1 id="page-title">Restoring our tomorrow, today.</h1>
+          <p class="lead">
+            AgraMAX FAO™ is a Soil-based Nutrition & Atmosphere Regeneration system designed to support healthier soil, more nutrient-rich food cycles, and a more balanced future for people and planet.
+          </p>
 
-    <div class="note">Launching soon.</div>
-  </main>
+          <div class="actions">
+            <a class="button" href="mailto:info@agramax.farm?subject=AgraMAX%20FAO%20Inquiry">Contact Us</a>
+            <a class="secondary-link" href="#restoration-cycle">Preview the restoration cycle</a>
+          </div>
+
+          <div class="mission" aria-label="People Planet Purpose mission pillars">
+            <div class="mission-card">
+              <strong>People</strong>
+              <span>Supporting a future where healthier food begins with healthier soil.</span>
+            </div>
+            <div class="mission-card">
+              <strong>Planet</strong>
+              <span>Focused on restoring the natural systems that connect soil, atmosphere, and oceans.</span>
+            </div>
+            <div class="mission-card">
+              <strong>Purpose</strong>
+              <span>Built around a restoration initiative developed through 30+ years of research.</span>
+            </div>
+          </div>
+        </section>
+
+        <aside class="hero-card" id="restoration-cycle" aria-label="AgraMAX FAO restoration cycle summary">
+          <div class="card-inner">
+            <div class="card-label">The AgraMAX FAO™ Initiative</div>
+            <p class="card-title">A simple idea with a global purpose: restore the soil, restore the cycle.</p>
+
+            <div class="cycle">
+              <div class="cycle-item">
+                <div class="icon">🌱</div>
+                <div>
+                  <h2>Restore Soil Ecosystems</h2>
+                  <p>Designed to help replenish depleted soils with organic microcomplexes that support life below the surface.</p>
+                </div>
+              </div>
+
+              <div class="cycle-item">
+                <div class="icon">💧</div>
+                <div>
+                  <h2>Support Moisture Retention</h2>
+                  <p>Healthier soil structure can help hold water where crops, plants, and soil organisms need it most.</p>
+                </div>
+              </div>
+
+              <div class="cycle-item">
+                <div class="icon">☁️</div>
+                <div>
+                  <h2>Advance Carbon Stewardship</h2>
+                  <p>AgraMAX FAO™ is being developed with CarbonCAP™ Technology to support soil-based carbon sequestration.</p>
+                </div>
+              </div>
+
+              <div class="cycle-item">
+                <div class="icon">🌾</div>
+                <div>
+                  <h2>Improve the Food Cycle</h2>
+                  <p>The goal is to help restore a more nutrient-rich foundation for crops, animals, and human health.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-line">
+        <span>© <span id="year"></span> AgraMAX FAO™. All rights reserved.</span>
+        <span>Health for all. Hunger for none.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
