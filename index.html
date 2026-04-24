@@ -1,506 +1,593 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AgraMAX FAO&trade; &mdash; Restoring Our Tomorrow, Today.</title>
+<meta name="description" content="AgraMAX FAO&trade; (Food-Air-Ocean) is a 100% organically microcomplexed Soil-based, Nutrition & Atmosphere Regeneration (SNAR) system by Drucker Labs. Coming soon." />
+<meta name="theme-color" content="#1f3d2b" />
+<meta property="og:title" content="AgraMAX FAO&trade; &mdash; Coming Soon" />
+<meta property="og:description" content="A Soil-based, Nutrition & Atmosphere Regeneration system. Health for all, hunger for none." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --earth-deep: #1f3d2b;
+    --earth: #2d5a3d;
+    --leaf: #4a8a5c;
+    --soil: #3a2e24;
+    --bone: #f6f1e7;
+    --sand: #ece3d0;
+    --sky: #8db6c9;
+    --ocean: #2b5d6e;
+    --sun: #c9a24b;
+    --ink: #12201a;
+    --muted: #5a6b60;
+    --line: rgba(31, 61, 43, 0.15);
+  }
 
-  <title>AgraMAX FAO™ | Coming Soon</title>
-  <meta
-    name="description"
-    content="AgraMAX FAO™ is a coming Soil-based Nutrition & Atmosphere Regeneration initiative focused on restoring soil health, food quality, and environmental balance."
-  />
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-  <style>
-    :root {
-      --soil: #31281f;
-      --soil-soft: #5d4936;
-      --leaf: #486f3d;
-      --leaf-dark: #2f4a2b;
-      --sand: #f4ead8;
-      --cream: #fffaf0;
-      --sky: #dfeee8;
-      --gold: #c99f4a;
-      --text: #241f1a;
-      --muted: #655b50;
-      --card: rgba(255, 250, 240, 0.78);
-      --border: rgba(49, 40, 31, 0.16);
-      --shadow: 0 24px 70px rgba(49, 40, 31, 0.16);
-    }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--bone);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-    * {
-      box-sizing: border-box;
-    }
+  h1, h2, h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--earth-deep);
+  }
 
-    html {
-      scroll-behavior: smooth;
-    }
+  p { margin: 0 0 1em; }
 
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 18% 18%, rgba(201, 159, 74, 0.22), transparent 30%),
-        radial-gradient(circle at 84% 12%, rgba(72, 111, 61, 0.18), transparent 34%),
-        linear-gradient(135deg, var(--cream) 0%, var(--sand) 48%, var(--sky) 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+  a { color: var(--earth); text-decoration: none; border-bottom: 1px solid currentColor; }
 
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      border-radius: 999px;
-      pointer-events: none;
-      z-index: 0;
-    }
+  .wrap {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+  }
 
-    body::before {
-      width: 420px;
-      height: 420px;
-      left: -180px;
-      bottom: -170px;
-      background: rgba(72, 111, 61, 0.14);
-      filter: blur(3px);
-    }
+  /* ---------- Header ---------- */
+  header {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand {
+    font-family: "Fraunces", serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--earth-deep);
+    text-decoration: none;
+    border: none;
+  }
+  .brand span { color: var(--leaf); }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(74, 138, 92, 0.12);
+    color: var(--earth);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .pill::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--leaf);
+    box-shadow: 0 0 0 4px rgba(74, 138, 92, 0.18);
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(74, 138, 92, 0.18); }
+    50%      { box-shadow: 0 0 0 7px rgba(74, 138, 92, 0.05); }
+  }
 
-    body::after {
-      width: 520px;
-      height: 520px;
-      right: -220px;
-      top: 18%;
-      background: rgba(201, 159, 74, 0.13);
-      filter: blur(4px);
-    }
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 86px 0 96px;
+    overflow: hidden;
+    background: var(--soil) url("hero img.png") center right / cover no-repeat;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(18,32,26,0.78) 0%, rgba(18,32,26,0.56) 48%, rgba(18,32,26,0.18) 100%);
+    z-index: 0;
+  }
+  .hero > * { position: relative; z-index: 1; }
 
-    .site {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(246, 241, 231, 0.74);
+    margin-bottom: 22px;
+  }
+  h1.title {
+    font-size: clamp(44px, 7.6vw, 92px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    max-width: 14ch;
+    color: var(--bone);
+  }
+  h1.title em {
+    font-style: italic;
+    color: var(--sun);
+    font-weight: 500;
+  }
+  .tm { font-size: 0.45em; vertical-align: super; color: rgba(246, 241, 231, 0.62); font-weight: 500; }
 
-    .container {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
+  .tag {
+    margin-top: 28px;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(20px, 2.2vw, 26px);
+    color: rgba(246, 241, 231, 0.9);
+    max-width: 32ch;
+  }
 
-    header {
-      padding: 28px 0;
-    }
+  .lede {
+    margin-top: 28px;
+    max-width: 58ch;
+    font-size: 17px;
+    color: rgba(246, 241, 231, 0.84);
+  }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+  .hero .btn {
+    background: var(--sun);
+    border-color: var(--sun);
+    color: var(--ink);
+  }
+  .hero .btn:hover { background: #d6b761; }
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--soil);
-      text-decoration: none;
-    }
+  .cta-row {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    border: 1px solid var(--earth-deep);
+    background: var(--earth-deep);
+    color: var(--bone);
+    cursor: pointer;
+    transition: transform .15s ease, background .15s ease;
+  }
 
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      color: var(--cream);
-      background: linear-gradient(135deg, var(--leaf), var(--soil));
-      box-shadow: 0 12px 30px rgba(47, 74, 43, 0.24);
-      font-size: 18px;
-    }
+  .btn.ghost {
+    background: transparent;
+    color: var(--earth-deep);
+    border-color: var(--line);
+  }
 
-    .brand span:last-child {
-      font-size: 18px;
-    }
+  /* ---------- Divider ---------- */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 0;
+  }
 
-    .nav-note {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-    }
+  /* ---------- Sections ---------- */
+  section { padding: 80px 0; }
+  .section-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--leaf);
+    margin-bottom: 18px;
+  }
+  .section-title {
+    font-size: clamp(28px, 4vw, 44px);
+    max-width: 20ch;
+    margin-bottom: 20px;
+  }
+  .section-intro {
+    max-width: 60ch;
+    color: #354a3c;
+    font-size: 17px;
+  }
 
-    main {
-      flex: 1;
-      display: grid;
-      align-items: center;
-      padding: 36px 0 70px;
-    }
+  /* ---------- Pillars ---------- */
+  .pillars {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .card {
+    padding: 32px 28px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 44px -32px rgba(31,61,43,0.35);
+  }
+  .card .icon {
+    width: 44px; height: 44px;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    border-radius: 12px;
+    background: rgba(74,138,92,0.14);
+    color: var(--earth);
+    margin-bottom: 20px;
+  }
+  .card.air .icon { background: rgba(139,182,201,0.25); color: var(--ocean); }
+  .card.ocean .icon { background: rgba(43,93,110,0.14); color: var(--ocean); }
+  .card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 15px;
+    color: #3e4e45;
+    margin: 0;
+  }
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-      gap: 44px;
-      align-items: center;
-    }
+  /* ---------- Pull quote ---------- */
+  .quote {
+    background: var(--earth-deep);
+    color: var(--bone);
+    padding: 96px 0;
+  }
+  .quote .section-label { color: rgba(246,241,231,0.7); }
+  .quote blockquote {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(24px, 3.2vw, 38px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    max-width: 24ch;
+  }
+  .quote cite {
+    display: block;
+    margin-top: 28px;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(246,241,231,0.7);
+  }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 14px;
-      margin-bottom: 22px;
-      border: 1px solid rgba(72, 111, 61, 0.22);
-      border-radius: 999px;
-      color: var(--leaf-dark);
-      background: rgba(255, 250, 240, 0.62);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+  /* ---------- Cycle ---------- */
+  .cycle {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    counter-reset: step;
+  }
+  .step {
+    padding: 28px 22px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff;
+    position: relative;
+  }
+  .step::before {
+    counter-increment: step;
+    content: counter(step, decimal-leading-zero);
+    font-family: "Fraunces", serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--leaf);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .step h4 {
+    font-family: "Fraunces", serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: var(--earth-deep);
+  }
+  .step p {
+    font-size: 14px;
+    color: #47574e;
+    margin: 0;
+    line-height: 1.55;
+  }
 
-    .eyebrow-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--leaf);
-    }
+  /* ---------- Stats ---------- */
+  .stats {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  .stat .num {
+    font-family: "Fraunces", serif;
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 600;
+    color: var(--earth-deep);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat .num .unit { font-size: 0.5em; color: var(--leaf); }
+  .stat .label {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 22ch;
+  }
 
-    h1 {
-      margin: 0;
-      color: var(--soil);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(48px, 7vw, 92px);
-      line-height: 0.95;
-      letter-spacing: -0.065em;
-      max-width: 780px;
-    }
+  /* ---------- Mission ---------- */
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .mission-quote {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--soil);
+    border-left: 3px solid var(--leaf);
+    padding: 4px 0 4px 20px;
+  }
+  .mission-quote cite {
+    display: block;
+    margin-top: 18px;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: "Inter", sans-serif;
+  }
 
-    .lead {
-      max-width: 650px;
-      margin: 26px 0 0;
-      color: var(--muted);
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.62;
-    }
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 48px 0 64px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer .mission {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    color: var(--earth);
+  }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 34px;
-      align-items: center;
-    }
-
-    .button {
-      appearance: none;
-      border: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 24px;
-      border-radius: 999px;
-      background: var(--soil);
-      color: var(--cream);
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 16px 32px rgba(49, 40, 31, 0.22);
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: var(--leaf-dark);
-      box-shadow: 0 20px 42px rgba(49, 40, 31, 0.24);
-    }
-
-    .secondary-link {
-      color: var(--soil-soft);
-      font-weight: 800;
-      text-decoration: none;
-      border-bottom: 2px solid rgba(93, 73, 54, 0.28);
-      padding-bottom: 3px;
-    }
-
-    .hero-card {
-      position: relative;
-      padding: 26px;
-      border: 1px solid var(--border);
-      border-radius: 34px;
-      background: var(--card);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(255, 250, 240, 0.7), transparent 42%),
-        radial-gradient(circle at top right, rgba(72, 111, 61, 0.16), transparent 35%);
-      pointer-events: none;
-    }
-
-    .card-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cycle {
-      display: grid;
-      gap: 14px;
-      margin: 22px 0 0;
-    }
-
-    .cycle-item {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 13px;
-      align-items: start;
-      padding: 16px;
-      border-radius: 22px;
-      background: rgba(255, 250, 240, 0.72);
-      border: 1px solid rgba(49, 40, 31, 0.1);
-    }
-
-    .icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      background: rgba(72, 111, 61, 0.12);
-      color: var(--leaf-dark);
-      font-size: 21px;
-    }
-
-    .cycle-item h2 {
-      margin: 0 0 5px;
-      color: var(--soil);
-      font-size: 17px;
-      letter-spacing: -0.02em;
-    }
-
-    .cycle-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.5;
-    }
-
-    .card-label {
-      color: var(--leaf-dark);
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .card-title {
-      margin: 8px 0 0;
-      color: var(--soil);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(28px, 3vw, 38px);
-      line-height: 1.05;
-      letter-spacing: -0.045em;
-    }
-
-    .mission {
-      margin-top: 44px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .mission-card {
-      padding: 18px;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: rgba(255, 250, 240, 0.54);
-    }
-
-    .mission-card strong {
-      display: block;
-      color: var(--soil);
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
-
-    .mission-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.48;
-    }
-
-    .footer-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: center;
-      padding: 24px 0 30px;
-      color: rgba(36, 31, 26, 0.64);
-      font-size: 13px;
-    }
-
-    .footer-line a {
-      color: inherit;
-      font-weight: 700;
-    }
-
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card {
-        max-width: 640px;
-      }
-
-      .mission {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-line {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .container {
-        width: min(100% - 28px, 1120px);
-      }
-
-      header {
-        padding: 20px 0;
-      }
-
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      main {
-        padding-top: 18px;
-      }
-
-      .hero-card {
-        padding: 18px;
-        border-radius: 26px;
-      }
-
-      .actions {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .button {
-        width: 100%;
-      }
-    }
-  </style>
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .pillars, .cycle { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .mission-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    .hero { padding: 64px 0 56px; }
+    section { padding: 56px 0; }
+    .pillars, .cycle, .stats { grid-template-columns: 1fr; }
+    .numbers { text-align: center; }
+    .numbers .section-title { margin-left: auto; margin-right: auto; }
+    .stat .label { margin-left: auto; margin-right: auto; }
+  }
+</style>
 </head>
-
 <body>
-  <div class="site">
-    <header>
-      <div class="container nav">
-        <a class="brand" href="#" aria-label="AgraMAX FAO home">
-          <span class="brand-mark">✦</span>
-          <span>AgraMAX FAO™</span>
-        </a>
-        <div class="nav-note">Food · Air · Ocean</div>
-      </div>
-    </header>
 
-    <main>
-      <div class="container hero">
-        <section aria-labelledby="page-title">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Coming Soon</div>
-          <h1 id="page-title">Restoring our tomorrow, today.</h1>
-          <p class="lead">
-            AgraMAX FAO™ is a Soil-based Nutrition & Atmosphere Regeneration system designed to support healthier soil, more nutrient-rich food cycles, and a more balanced future for people and planet.
-          </p>
-
-          <div class="actions">
-            <a class="button" href="mailto:info@agramax.farm?subject=AgraMAX%20FAO%20Inquiry">Contact Us</a>
-            <a class="secondary-link" href="#restoration-cycle">Preview the restoration cycle</a>
-          </div>
-
-          <div class="mission" aria-label="People Planet Purpose mission pillars">
-            <div class="mission-card">
-              <strong>People</strong>
-              <span>Supporting a future where healthier food begins with healthier soil.</span>
-            </div>
-            <div class="mission-card">
-              <strong>Planet</strong>
-              <span>Focused on restoring the natural systems that connect soil, atmosphere, and oceans.</span>
-            </div>
-            <div class="mission-card">
-              <strong>Purpose</strong>
-              <span>Built around a restoration initiative developed through 30+ years of research.</span>
-            </div>
-          </div>
-        </section>
-
-        <aside class="hero-card" id="restoration-cycle" aria-label="AgraMAX FAO restoration cycle summary">
-          <div class="card-inner">
-            <div class="card-label">The AgraMAX FAO™ Initiative</div>
-            <p class="card-title">A simple idea with a global purpose: restore the soil, restore the cycle.</p>
-
-            <div class="cycle">
-              <div class="cycle-item">
-                <div class="icon">🌱</div>
-                <div>
-                  <h2>Restore Soil Ecosystems</h2>
-                  <p>Designed to help replenish depleted soils with organic microcomplexes that support life below the surface.</p>
-                </div>
-              </div>
-
-              <div class="cycle-item">
-                <div class="icon">💧</div>
-                <div>
-                  <h2>Support Moisture Retention</h2>
-                  <p>Healthier soil structure can help hold water where crops, plants, and soil organisms need it most.</p>
-                </div>
-              </div>
-
-              <div class="cycle-item">
-                <div class="icon">☁️</div>
-                <div>
-                  <h2>Advance Carbon Stewardship</h2>
-                  <p>AgraMAX FAO™ is being developed with CarbonCAP™ Technology to support soil-based carbon sequestration.</p>
-                </div>
-              </div>
-
-              <div class="cycle-item">
-                <div class="icon">🌾</div>
-                <div>
-                  <h2>Improve the Food Cycle</h2>
-                  <p>The goal is to help restore a more nutrient-rich foundation for crops, animals, and human health.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </main>
-
-    <footer>
-      <div class="container footer-line">
-        <span>© <span id="year"></span> AgraMAX FAO™. All rights reserved.</span>
-        <span>Health for all. Hunger for none.</span>
-      </div>
-    </footer>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">AgraMAX <span>FAO&trade;</span></a>
+    <span class="pill">Coming Soon</span>
   </div>
+</header>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">A Drucker Labs Initiative</div>
+      <h1 class="title">Restoring our <em>tomorrow</em>, today.<span class="tm">&trade;</span></h1>
+      <p class="tag">Food &middot; Air &middot; Ocean &mdash; a SNAR system 30+ years in the making.</p>
+      <p class="lede">
+        AgraMAX FAO&trade; is a 100% organically microcomplexed Soil-based, Nutrition &amp; Atmosphere Regeneration system
+        &mdash; designed to heal depleted soils, restore the nutrients in our food supply, and help sequester atmospheric
+        CO<sub>2</sub> through proprietary CarbonCAP&trade; Technology.
+      </p>
+
+      <div class="cta-row" style="margin-top:28px;">
+        <a class="btn" href="#what">Learn about the system &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section id="what">
+    <div class="wrap">
+      <div class="section-label">What it is</div>
+      <h2 class="section-title">Three fronts. One system.</h2>
+      <p class="section-intro">
+        Since the 1930s, &ldquo;economic-based&rdquo; farming has hollowed out the carbon-bonded organic complexes that
+        make soil fertile &mdash; and food nourishing. AgraMAX FAO&trade; works across Food, Air, and Ocean to reverse that damage.
+      </p>
+
+      <div class="pillars">
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 4 5 7 5 11a5 5 0 0 1-10 0c0-4 2-7 5-11Z"/><path d="M12 13v9"/></svg>
+          </div>
+          <h3>Food</h3>
+          <p>Restores polysaccharides, muco-polysaccharides, and carbon-bonded minerals to depleted topsoil &mdash; bringing nutrient density back to the food cycle.</p>
+        </article>
+
+        <article class="card air">
+          <div class="icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 13h15a3 3 0 1 1-3 3"/><path d="M3 18h7"/></svg>
+          </div>
+          <h3>Air</h3>
+          <p>With CarbonCAP&trade; Technology, restored soils sequester atmospheric CO<sub>2</sub> &mdash; an estimated 8&ndash;12% of harmful emissions &mdash; and store it safely underground.</p>
+        </article>
+
+        <article class="card ocean">
+          <div class="icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14c2 0 2-2 5-2s3 2 5 2 3-2 5-2 3 2 5 2"/><path d="M2 19c2 0 2-2 5-2s3 2 5 2 3-2 5-2 3 2 5 2"/><path d="M2 9c2 0 2-2 5-2s3 2 5 2 3-2 5-2 3 2 5 2"/></svg>
+          </div>
+          <h3>Ocean</h3>
+          <p>Rebalancing the carbon cycle on land takes pressure off oceans &mdash; a cornerstone of Dr.&nbsp;Drucker&rsquo;s mission to return Earth&rsquo;s climate to homeostasis.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <div class="section-label">Why it matters</div>
+      <blockquote>
+        &ldquo;In every handful of healthy soil there are more organisms than the number of people that have lived on planet Earth.&rdquo;
+      </blockquote>
+      <cite>Dr. Kristine Nichols &middot; Chief Scientist, Rodale Institute</cite>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">The restoration cycle</div>
+      <h2 class="section-title">From soil microbe to human cell.</h2>
+      <p class="section-intro">
+        AgraMAX FAO&trade; triggers a chain reaction &mdash; rebuilding soil biology, restoring nutrient transport, and closing the
+        loop between a healthy climate and healthy people.
+      </p>
+
+      <ol class="cycle" style="list-style:none; padding:0;">
+        <li class="step">
+          <h4>Rebuild soil</h4>
+          <p>SNAR technology restores organic complexes, letting soil-based microorganisms multiply and thrive.</p>
+        </li>
+        <li class="step">
+          <h4>Retain &amp; sequester</h4>
+          <p>Healthy soil holds moisture and captures atmospheric CO<sub>2</sub> via CarbonCAP&trade; Technology.</p>
+        </li>
+        <li class="step">
+          <h4>Nourish crops</h4>
+          <p>Carbon-bonded nutrients and minerals move through roots into the food supply.</p>
+        </li>
+        <li class="step">
+          <h4>Feed people</h4>
+          <p>A nutrient-rich cellular foundation helps combat disease in human and animal populations.</p>
+        </li>
+        <li class="step">
+          <h4>Rebalance Earth</h4>
+          <p>Sustained sequestration helps bring homeostasis back to Earth&rsquo;s climate.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="numbers" style="background:var(--sand); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-label">By the numbers</div>
+      <h2 class="section-title">A problem the scale of a century.</h2>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">30<span class="unit">+&nbsp;yrs</span></div>
+          <div class="label">of research &amp; development behind the AgraMAX FAO&trade; system.</div>
+        </div>
+        <div class="stat">
+          <div class="num">8&ndash;12<span class="unit">%</span></div>
+          <div class="label">estimated share of harmful atmospheric CO<sub>2</sub> addressable via restored soils.</div>
+        </div>
+        <div class="stat">
+          <div class="num">1.6<span class="unit">B</span></div>
+          <div class="label">people already uncertain of getting enough to eat &mdash; and climbing.</div>
+        </div>
+        <div class="stat">
+          <div class="num">95<span class="unit">&nbsp;yrs</span></div>
+          <div class="label">since the 1930s shift to economic-based farming began depleting our topsoil.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap mission-grid">
+      <div>
+        <div class="section-label">The mission</div>
+        <h2 class="section-title">Health for all. Hunger for none.</h2>
+        <p class="section-intro">
+          The AgraMAX FAO&trade; Restoration Initiative is the cornerstone of Dr.&nbsp;Richard Drucker&rsquo;s
+          <em>People. Planet. Purpose.</em> mission &mdash; a framework for restoring the natural order of soil, atmosphere, and oceans
+          so we can prevent humanitarian catastrophes of food shortage and disease proliferation.
+        </p>
+      </div>
+      <div>
+        <blockquote class="mission-quote">
+          &ldquo;If we get the soil right we can fix a lot of our issues &mdash; healthy soil leads to healthy plants, healthy animals, healthy humans, healthy water, healthy climate.&rdquo;
+          <cite>Ray Archuleta &middot; Conservation Agronomist, USDA-NRCS</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <div>
+      <strong style="color:var(--earth-deep);">AgraMAX FAO&trade;</strong> &middot; A Drucker Labs Initiative
+      <div class="mission" style="margin-top:4px;">People. Planet. Purpose.</div>
+    </div>
+    <div>&copy; <span id="yr"></span> Drucker Labs. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
